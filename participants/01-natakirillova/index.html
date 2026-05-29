@@ -116,6 +116,44 @@
       color: var(--accent); width: 16px; height: 16px;
     }
 
+    /* BIO */
+    .bio {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 18px 20px;
+      margin-bottom: 4px;
+      box-shadow: var(--shadow-card);
+    }
+    .bio__lead {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--fg);
+      margin: 0 0 12px;
+      line-height: 1.4;
+    }
+    .bio__list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .bio__item {
+      display: flex;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .bio__item::before {
+      content: "•";
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
     /* CTA */
     .cta-wrap {
       background: var(--surface); border-radius: var(--radius-card);
@@ -155,6 +193,16 @@
         </div>
       </div>
     </header>
+
+    <div class="bio">
+      <p class="bio__lead">Помогаю разобраться, почему вы годами варитесь в одной и той же ситуации:</p>
+      <ul class="bio__list">
+        <li class="bio__item">Находим повторяющиеся сценарии в ваших отношениях, деньгах и самореализации</li>
+        <li class="bio__item">Выясняем, почему из раза в раз вы попадаете в одну и ту же историю</li>
+        <li class="bio__item">Находим, что именно вас держит в этом круге и не даёт выйти</li>
+        <li class="bio__item">В результате вы понимаете механизм — и получаете конкретные шаги, чтобы эта история изменилась</li>
+      </ul>
+    </div>
 
     <p class="section-label">Материалы</p>
 
