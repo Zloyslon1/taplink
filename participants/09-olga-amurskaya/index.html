@@ -72,10 +72,11 @@
       flex: 1; min-width: 0; display: flex; flex-direction: column;
       justify-content: center; padding-right: 18px;
     }
-    .card__title { font-size: 14.5px; font-weight: 600; line-height: 1.32; color: var(--fg); margin: 0 0 6px; letter-spacing: -0.1px; }
-    .card__meta  { font-size: 12px; color: var(--muted); line-height: 1.35; }
+    .card__title { font-size: 14.5px; font-weight: 600; line-height: 1.32; color: var(--fg); margin: 0 0 4px; letter-spacing: -0.1px; }
+    .card__meta  { font-size: 12px; color: var(--muted-soft); line-height: 1.35; margin: 0 0 6px; }
+    .card__desc  { font-size: 13px; color: var(--muted); line-height: 1.45; }
     .card__chevron {
-      position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+      position: absolute; right: 14px; top: 18px;
       color: var(--accent); width: 16px; height: 16px;
     }
 
@@ -136,7 +137,8 @@
       </div>
       <div class="card__body">
         <h3 class="card__title">Тест: живу ли я свою жизнь?</h3>
-        <div class="card__meta">Пройти короткий тест в Telegram</div>
+        <div class="card__meta">Короткий тест · Telegram</div>
+        <p class="card__desc">Вы живёте своей жизнью — или той, которую от вас ожидают? Если слово «надо» звучит чаще, чем «хочу» — пора разобраться, чья это жизнь на самом деле.</p>
       </div>
       <svg class="card__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
     </a>
@@ -149,7 +151,8 @@
       </div>
       <div class="card__body">
         <h3 class="card__title">Почему не стоит бояться работать с родом</h3>
-        <div class="card__meta">Как раскрытие семейных тайн освобождает</div>
+        <div class="card__meta">Пост · Telegram</div>
+        <p class="card__desc">Именно то, что вы боитесь трогать — чаще всего и управляет вашей жизнью прямо сейчас. Почему это не страшно, а наоборот освобождает.</p>
       </div>
       <svg class="card__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
     </a>
@@ -162,7 +165,8 @@
       </div>
       <div class="card__body">
         <h3 class="card__title">Эфир: самоконтроль в стрессе</h3>
-        <div class="card__meta">Как услышать тело и изменить жизнь</div>
+        <div class="card__meta">Запись эфира · Telegram</div>
+        <p class="card__desc">Живот сжимается перед важным разговором. Плечи каменеют. Тело давно пытается вам что-то сказать — разберёмся, как его наконец услышать.</p>
       </div>
       <svg class="card__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
     </a>
