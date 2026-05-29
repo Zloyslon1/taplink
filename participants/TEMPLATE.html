@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F1F5FC">
+  <title>ИМЯ УЧАСТНИЦЫ</title>
+
+  <style>
+    :root {
+      --bg: #F1F5FC;
+      --surface: #FFFFFF;
+      --fg: #0B1A38;
+      --muted: #54607A;
+      --muted-soft: #94A1BC;
+      --border: #DDE5F2;
+      --accent: #1F4FD1;
+      --accent-deep: #0F2E8C;
+      --accent-soft: #E8EFFE;
+      --radius-card: 18px;
+      --radius-sm: 12px;
+      --max: 480px;
+      --shadow-card: 0 4px 14px rgba(15, 50, 140, .08), 0 1px 4px rgba(15, 50, 140, .04);
+      --shadow-hover: 0 14px 36px rgba(15, 50, 140, .14), 0 4px 12px rgba(15, 50, 140, .08);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 24px 20px 64px;
+    }
+
+    /* ---------- HEADER ---------- */
+    .header {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 8px 0 20px;
+    }
+    .header__avatar {
+      flex-shrink: 0;
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--accent-soft);
+      box-shadow: 0 8px 24px rgba(15, 50, 140, .15), 0 0 0 4px #FFFFFF;
+    }
+    .header__avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .header__info { flex: 1; min-width: 0; padding-top: 2px; }
+    .header__name {
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.25;
+      margin: 0 0 8px;
+      letter-spacing: -0.2px;
+    }
+    .header__lines { display: flex; flex-direction: column; gap: 4px; }
+    .header__line {
+      font-size: 13.5px;
+      line-height: 1.4;
+      color: var(--fg);
+    }
+
+    /* ---------- LIST CARD ---------- */
+    .card {
+      display: flex;
+      align-items: stretch;
+      gap: 14px;
+      padding: 12px;
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      margin-bottom: 12px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      transition: transform .18s ease, box-shadow .22s ease;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+    .card:active { transform: translateY(-1px); }
+
+    .card__cover {
+      flex-shrink: 0;
+      width: 112px;
+      aspect-ratio: 4 / 3;
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--bg);
+      position: relative;
+    }
+    .card__cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* Gradient placeholder when no image is provided */
+    .card__cover--gradient-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .card__cover--gradient-2 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+    .card__cover--gradient-3 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+    .card__cover--gradient-4 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+    .card__cover--gradient-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+    .card__cover--gradient-6 { background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%); }
+    .card__cover--gradient-7 { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+    .card__cover--gradient-8 { background: linear-gradient(135deg, #96fbc4 0%, #f9f586 100%); }
+    .card__cover--gradient-tg { background: linear-gradient(135deg, #2AABEE 0%, #1a7fc1 100%); }
+    .card__cover--gradient-article { background: linear-gradient(135deg, #1F4FD1 0%, #0F2E8C 100%); }
+    .card__cover--gradient-file { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
+
+    .card__cover-icon {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card__cover-icon svg { width: 36px; height: 36px; fill: rgba(255,255,255,0.85); }
+
+    .card__body {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-right: 18px;
+    }
+    .card__title {
+      font-size: 14.5px;
+      font-weight: 600;
+      line-height: 1.32;
+      color: var(--fg);
+      margin: 0 0 6px;
+      letter-spacing: -0.1px;
+    }
+    .card__meta {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+    .card__chevron {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--accent);
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    /* ---------- CHANNEL CARD ---------- */
+    .channel {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 16px;
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      margin-bottom: 12px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      transition: transform .18s ease, box-shadow .22s ease;
+    }
+    .channel:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+    .channel__avatar {
+      position: relative;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--accent-soft);
+    }
+    .channel__avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .channel__icon {
+      position: absolute;
+      right: -2px;
+      bottom: -2px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .channel__icon--tg  { background: #2AABEE; }
+    .channel__icon--vk  { background: #0077FF; }
+    .channel__icon--max { background: #FF6B00; }
+    .channel__icon svg  { width: 12px; height: 12px; fill: #FFF; }
+    .channel__body { flex: 1; min-width: 0; padding-right: 18px; }
+    .channel__name { font-size: 15px; font-weight: 600; line-height: 1.25; margin: 0 0 2px; }
+    .channel__sub  { font-size: 13px; color: var(--muted); line-height: 1.3; }
+    .channel__chevron {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--accent);
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ---------- CTA ---------- */
+    .cta-wrap {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 20px;
+      margin-top: 4px;
+      box-shadow: var(--shadow-card);
+    }
+    .cta-wrap__text {
+      text-align: center;
+      font-size: 13.5px;
+      color: var(--fg);
+      margin: 0 0 14px;
+      line-height: 1.5;
+    }
+    .qa-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 17px 20px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+      color: #FFFFFF;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.1px;
+      box-shadow: 0 6px 18px rgba(31, 79, 209, .35);
+      transition: transform .15s ease, box-shadow .2s ease;
+    }
+    .qa-cta:hover  { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(31, 79, 209, .42); }
+    .qa-cta:active { transform: translateY(0) scale(0.99); }
+
+    /* ---------- SECTION LABEL ---------- */
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      color: var(--muted-soft);
+      margin: 20px 0 10px 4px;
+    }
+
+    @media (max-width: 360px) {
+      .page { padding: 20px 16px 56px; }
+      .header__avatar { width: 84px; height: 84px; }
+      .card__cover { width: 96px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header__avatar">
+        <img src="ФОТО_АВАТАР" alt="ИМЯ УЧАСТНИЦЫ" width="192" height="192" decoding="async" fetchpriority="high">
+      </div>
+      <div class="header__info">
+        <h1 class="header__name">ИМЯ УЧАСТНИЦЫ</h1>
+        <div class="header__lines">
+          <div class="header__line">СПЕЦИАЛИЗАЦИЯ (напр. Психолог · Психогенеалог)</div>
+          <div class="header__line">ДОПОЛНИТЕЛЬНАЯ СТРОКА (опционально)</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- МАТЕРИАЛЫ — карточки с превью -->
+    <p class="section-label">Материалы</p>
+
+    <!-- Карточка: тест / статья / гайд / подкаст -->
+    <a href="ССЫЛКА" rel="noopener" class="card">
+      <div class="card__cover card__cover--gradient-tg">
+        <!-- Иконка Telegram -->
+        <div class="card__cover-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.7 8.02c-.12.56-.46.7-.93.43l-2.58-1.9-1.24 1.2c-.14.14-.26.26-.53.26l.19-2.64 4.84-4.37c.21-.19-.05-.29-.32-.1L7.9 14.96l-2.53-.79c-.55-.17-.56-.55.12-.82l9.87-3.8c.46-.17.86.11.28.25z"/></svg>
+        </div>
+      </div>
+      <div class="card__body">
+        <h3 class="card__title">НАЗВАНИЕ МАТЕРИАЛА</h3>
+        <div class="card__meta">ТИП (напр. Бесплатный тест · Открывается сразу)</div>
+      </div>
+      <svg class="card__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+
+    <!-- Карточка: статья -->
+    <a href="ССЫЛКА" rel="noopener" class="card">
+      <div class="card__cover card__cover--gradient-article">
+        <!-- Иконка статьи -->
+        <div class="card__cover-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+        </div>
+      </div>
+      <div class="card__body">
+        <h3 class="card__title">НАЗВАНИЕ СТАТЬИ</h3>
+        <div class="card__meta">Статья · НАЗВАНИЕ СМИ</div>
+      </div>
+      <svg class="card__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+
+    <!-- Карточка: файл/гайд -->
+    <a href="ССЫЛКА" rel="noopener" class="card">
+      <div class="card__cover card__cover--gradient-file">
+        <!-- Иконка файла -->
+        <div class="card__cover-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+        </div>
+      </div>
+      <div class="card__body">
+        <h3 class="card__title">НАЗВАНИЕ ГАЙДА / ЧЕКЛИСТА</h3>
+        <div class="card__meta">Бесплатно · Скачать сразу</div>
+      </div>
+      <svg class="card__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+
+    <!-- КАНАЛЫ -->
+    <p class="section-label">Каналы</p>
+
+    <!-- Telegram канал -->
+    <a href="https://t.me/НИК_КАНАЛА" rel="noopener" class="channel">
+      <div class="channel__avatar">
+        <img src="ФОТО_АВАТАР" alt="" width="112" height="112" decoding="async" loading="lazy">
+        <div class="channel__icon channel__icon--tg">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.7 8.02c-.12.56-.46.7-.93.43l-2.58-1.9-1.24 1.2c-.14.14-.26.26-.53.26l.19-2.64 4.84-4.37c.21-.19-.05-.29-.32-.1L7.9 14.96l-2.53-.79c-.55-.17-.56-.55.12-.82l9.87-3.8c.46-.17.86.11.28.25z"/></svg>
+        </div>
+      </div>
+      <div class="channel__body">
+        <div class="channel__name">ИМЯ УЧАСТНИЦЫ</div>
+        <div class="channel__sub">Telegram-канал</div>
+      </div>
+      <svg class="channel__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+
+    <!-- VK (если есть) -->
+    <a href="ССЫЛКА_ВК" rel="noopener" class="channel">
+      <div class="channel__avatar">
+        <img src="ФОТО_АВАТАР" alt="" width="112" height="112" decoding="async" loading="lazy">
+        <div class="channel__icon channel__icon--vk">
+          <svg viewBox="0 0 24 24"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.131-.427.131-.427s-.019-1.304.585-1.496c.595-.189 1.361 1.26 2.174 1.816.614.418 1.08.326 1.08.326l2.17-.03s1.134-.07.596-1.002c-.044-.073-.312-.659-1.608-1.862-1.356-1.256-1.174-1.053.459-3.225.997-1.328 1.396-2.14 1.271-2.487-.12-.331-.854-.244-.854-.244l-2.442.015s-.181-.025-.315.056c-.132.08-.217.267-.217.267s-.387 1.029-.903 1.904c-1.088 1.847-1.523 1.945-1.701 1.831-.414-.267-.311-1.073-.311-1.647 0-1.79.272-2.536-.528-2.732-.265-.064-.46-.106-1.138-.113-.869-.009-1.604.003-2.02.206-.277.135-.49.437-.36.454.161.022.526.098.72.362.25.341.241 1.107.241 1.107s.144 2.109-.334 2.372c-.327.18-.777-.187-1.742-1.861-.497-.858-.872-1.808-.872-1.808s-.072-.181-.202-.278c-.157-.118-.376-.155-.376-.155l-2.322.015s-.349.01-.477.162C4.044 8.94 4.154 9.26 4.154 9.26s1.816 4.25 3.872 6.395c1.886 1.967 4.03 1.838 4.03 1.838h.972l-.243-.252z"/></svg>
+        </div>
+      </div>
+      <div class="channel__body">
+        <div class="channel__name">ИМЯ УЧАСТНИЦЫ</div>
+        <div class="channel__sub">ВКонтакте</div>
+      </div>
+      <svg class="channel__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+
+    <!-- CTA: запись на консультацию -->
+    <div class="cta-wrap">
+      <p class="cta-wrap__text">Готовы разобраться в своей ситуации?<br>Запишитесь на консультацию</p>
+      <a href="https://t.me/НИК_ЛИЧНЫЙ" rel="noopener" class="qa-cta">Записаться на консультацию</a>
+    </div>
+
+  </main>
+</body>
+</html>
