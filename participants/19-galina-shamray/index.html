@@ -2,89 +2,110 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F1F5FC">
   <title>Галина Шамрай</title>
   <style>
-:root{
-  --bg:#F1F5FC;--surface:#FFFFFF;--fg:#0B1A38;--muted:#54607A;
-  --muted-soft:#94A1BC;--border:#DDE5F2;--accent:#1F4FD1;
-  --accent-deep:#0F2E8C;--radius:18px;--radius-sm:12px;--max:480px;
-  --sh:0 4px 14px rgba(15,50,140,.08),0 1px 4px rgba(15,50,140,.04);
-  --sh-h:0 14px 36px rgba(15,50,140,.14),0 4px 12px rgba(15,50,140,.08);
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{background:var(--bg);color:var(--fg);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased;min-height:100vh}
-a{color:inherit;text-decoration:none}
-a,button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
-.page{max-width:var(--max);margin:0 auto;padding:24px 20px 64px}
-
-/* header */
-.header{display:flex;align-items:flex-start;gap:18px;padding:8px 0 20px}
-.avatar{flex-shrink:0;width:96px;height:96px;border-radius:50%;overflow:hidden;
-  background:#fff;box-shadow:0 8px 24px rgba(15,50,140,.15),0 0 0 4px #fff}
-.avatar img{width:100%;height:100%;object-fit:cover;display:block}
-.hinfo{flex:1;min-width:0;padding-top:2px}
-.hname{font-size:17px;font-weight:600;line-height:1.25;margin:0 0 8px;letter-spacing:-.2px}
-.hlines{display:flex;flex-direction:column;gap:4px}
-.hline{font-size:13.5px;line-height:1.4;color:var(--fg)}
-
-/* bio block */
-.bio{background:var(--surface);border-radius:var(--radius);padding:18px 20px;
-  margin-bottom:16px;box-shadow:var(--sh);font-size:14px;line-height:1.6;color:var(--muted)}
-
-/* link card */
-.lcard{display:flex;align-items:center;gap:14px;padding:14px 16px;
-  background:var(--surface);border-radius:var(--radius);margin-bottom:10px;
-  box-shadow:var(--sh);position:relative;
-  transition:transform .18s ease,box-shadow .22s ease}
-.lcard:hover{transform:translateY(-3px);box-shadow:var(--sh-h)}
-.lcard:active{transform:translateY(-1px)}
-.lcard__icon{flex-shrink:0;width:40px;height:40px;border-radius:50%;
-  background:var(--accent-soft,#E8EFFE);display:flex;align-items:center;
-  justify-content:center;color:var(--accent)}
-.lcard__icon svg{width:18px;height:18px}
-.lcard__label{flex:1;min-width:0;font-size:14.5px;font-weight:600;
-  line-height:1.3;color:var(--fg);padding-right:18px}
-.lcard__chev{position:absolute;right:14px;top:50%;transform:translateY(-50%);
-  color:var(--accent);width:16px;height:16px}
-
-/* cta button */
-.cta{display:flex;align-items:center;justify-content:center;width:100%;
-  padding:17px 20px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));
-  color:#fff;border-radius:12px;font-size:15px;font-weight:700;letter-spacing:-.1px;
-  box-shadow:0 6px 18px rgba(31,79,209,.35);
-  transition:transform .15s ease,box-shadow .2s ease;margin-bottom:10px}
-.cta:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(31,79,209,.42)}
-.cta:active{transform:translateY(0) scale(.99)}
-
-@media(max-width:360px){
-  .page{padding:20px 16px 56px}
-  .avatar{width:84px;height:84px}
-}
-</style>
+    :root { --bg:#F1F5FC;--surface:#fff;--fg:#0B1A38;--muted:#54607A;--muted-soft:#94A1BC;--accent:#1F4FD1;--accent-deep:#0F2E8C;--accent-soft:#E8EFFE;--radius-card:18px;--max:480px;--shadow-card:0 4px 14px rgba(15,50,140,.08),0 1px 4px rgba(15,50,140,.04);--shadow-hover:0 14px 36px rgba(15,50,140,.14),0 4px 12px rgba(15,50,140,.08); }
+    *{box-sizing:border-box}html,body{margin:0;padding:0}
+    body{background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased;min-height:100vh}
+    a{color:inherit;text-decoration:none}a,button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+    .page{max-width:var(--max);margin:0 auto;padding:24px 20px 64px}
+    .header{display:flex;align-items:flex-start;gap:18px;padding:8px 0 20px}
+    .header__avatar{flex-shrink:0;width:96px;height:96px;border-radius:50%;overflow:hidden;background:var(--accent-soft);box-shadow:0 8px 24px rgba(15,50,140,.15),0 0 0 4px #fff}
+    .header__avatar img{width:100%;height:100%;object-fit:cover;display:block}
+    .header__info{flex:1;min-width:0;padding-top:2px}
+    .header__name{font-size:17px;font-weight:600;line-height:1.25;margin:0 0 8px;letter-spacing:-.2px}
+    .header__lines{display:flex;flex-direction:column;gap:4px}
+    .header__line{font-size:13.5px;line-height:1.4;color:var(--fg)}
+    .bio{background:var(--surface);border-radius:var(--radius-card);padding:18px 20px;margin-bottom:12px;box-shadow:var(--shadow-card)}
+    .bio__lead{font-size:14.5px;font-weight:600;color:var(--fg);margin:0 0 14px;line-height:1.4}
+    .bio__group+.bio__group{margin-top:14px;padding-top:14px;border-top:1px solid var(--accent-soft)}
+    .bio__group-title{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted-soft);margin:0 0 10px}
+    .bio__list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+    .bio__item{display:flex;gap:10px;font-size:14px;color:var(--muted);line-height:1.45}
+    .bio__item::before{content:"•";color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .section-label{font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--muted-soft);margin:20px 0 10px 4px}
+    .card{display:flex;align-items:flex-start;gap:14px;padding:12px;background:var(--surface);border-radius:var(--radius-card);margin-bottom:12px;box-shadow:var(--shadow-card);position:relative;transition:transform .18s ease,box-shadow .22s ease}
+    .card:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover)}
+    .card__cover{flex-shrink:0;width:112px;aspect-ratio:4/3;border-radius:10px;overflow:hidden;position:relative}
+    .card__cover-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+    .card__cover-icon svg{width:38px;height:38px;fill:rgba(255,255,255,.85)}
+    .card__body{flex:1;min-width:0;padding-right:18px;padding-top:2px}
+    .card__title{font-size:14.5px;font-weight:600;line-height:1.32;color:var(--fg);margin:0 0 4px}
+    .card__meta{font-size:12px;color:var(--muted-soft);margin:0 0 6px}
+    .card__desc{font-size:13px;color:var(--muted);line-height:1.45;margin:0}
+    .card__chevron{position:absolute;right:14px;top:18px;color:var(--accent);width:16px;height:16px}
+    .cta-wrap{background:var(--surface);border-radius:var(--radius-card);padding:20px;margin-top:4px;box-shadow:var(--shadow-card)}
+    .cta-wrap__text{text-align:center;font-size:13.5px;color:var(--muted);margin:0 0 14px;line-height:1.5}
+    .qa-cta{display:flex;align-items:center;justify-content:center;width:100%;padding:17px 20px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));color:#fff;border-radius:12px;font-size:15px;font-weight:700;letter-spacing:-.1px;box-shadow:0 6px 18px rgba(31,79,209,.35);transition:transform .15s ease,box-shadow .2s ease}
+    .qa-cta:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(31,79,209,.42)}
+    .qa-cta:active{transform:translateY(0) scale(.99)}
+    @media(max-width:360px){.page{padding:20px 16px 56px}.header__avatar{width:84px;height:84px}.card__cover{width:96px}}
+  </style>
 </head>
 <body>
   <main class="page">
     <header class="header">
-      <div class="avatar">
-        <img src="ФОТО_19" alt="Галина Шамрай" width="192" height="192" decoding="async">
-      </div>
-      <div class="hinfo">
-        <h1 class="hname">Галина Шамрай</h1>
-        <div class="hlines">
-      <div class="hline">Клинический психолог, психогенеолог и медиатор</div>
-      </div>
+      <div class="header__avatar"><img src="ФОТО_АВАТАР" alt="Галина Шамрай" width="192" height="192" decoding="async" fetchpriority="high"></div>
+      <div class="header__info">
+        <h1 class="header__name">Галина Шамрай</h1>
+        <div class="header__lines">
+          <div class="header__line">Клинический психолог · Медиатор</div>
+        </div>
       </div>
     </header>
 
-    <a href="https://t.me/+Ij_Sgg5OHV8wNzQy" rel="noopener" class="lcard"><span class="lcard__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.7 8.02c-.12.56-.46.7-.93.43l-2.58-1.9-1.24 1.2c-.14.14-.26.26-.53.26l.19-2.64 4.84-4.37c.21-.19-.05-.29-.32-.1L7.9 14.96l-2.53-.79c-.55-.17-.56-.55.12-.82l9.87-3.8c.46-.17.86.11.28.25z"/></svg></span><span class="lcard__label">Ссылка на личный телеграм канал</span><svg class="lcard__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></a>
-<a href="https://hronika.org/2026/01/pochemu-sderzhivanie-chuvstv-mozhet-razrushit-zhizn/" rel="noopener" class="lcard"><span class="lcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h12"/></svg></span><span class="lcard__label">Читать статью</span><svg class="lcard__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></a>
-<a href="https://infonex.ru/kak-zashhitit-svoi-lichnye-granitsy-ot-neznakomtsev/" rel="noopener" class="lcard"><span class="lcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h12"/></svg></span><span class="lcard__label">Читать статью</span><svg class="lcard__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></a>
-<a href="https://t.me/galya_shamray" rel="noopener" class="cta">Записаться на консультацию</a>
+    <div class="bio">
+      <p class="bio__lead">Помогаю разорвать замкнутый круг повторяющихся неудач, конфликтов и внутренних кризисов.</p>
+      <div class="bio__group">
+        <p class="bio__group-title">Как я работаю</p>
+        <ul class="bio__list">
+          <li class="bio__item">Использую авторскую систему, основанную на многолетней клинической практике</li>
+          <li class="bio__item">Нахожу повторяющиеся сценарии, которые незаметно управляют вашими выборами и отношениями</li>
+          <li class="bio__item">Работаю с тем, почему из раза в раз вы оказываетесь в одних и тех же ситуациях — даже когда очень хотите иначе</li>
+        </ul>
+      </div>
+      <div class="bio__group">
+        <p class="bio__group-title">В результате</p>
+        <ul class="bio__list">
+          <li class="bio__item">Понимаете, что именно держит вас в этом круге</li>
+          <li class="bio__item">Перестаёте действовать по чужому сценарию и начинаете делать свои выборы</li>
+          <li class="bio__item">Находите внутреннюю опору, которая помогает двигаться вперёд</li>
+        </ul>
+      </div>
+    </div>
 
+    <p class="section-label">Статьи</p>
+
+    <a href="https://hronika.org/2026/01/pochemu-sderzhivanie-chuvstv-mozhet-razrushit-zhizn/" rel="noopener" class="card">
+      <div class="card__cover" style="background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%)">
+        <div class="card__cover-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg></div>
+      </div>
+      <div class="card__body">
+        <h3 class="card__title">Почему сдерживание чувств разрушает жизнь</h3>
+        <div class="card__meta">Статья</div>
+        <p class="card__desc">С детства нас учили «держи себя в руках» — и мы держим. До выгорания, до пустоты, до хронической усталости.</p>
+      </div>
+      <svg class="card__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+
+    <a href="https://infonex.ru/kak-zashhitit-svoi-lichnye-granitsy-ot-neznakomtsev/" rel="noopener" class="card">
+      <div class="card__cover" style="background:linear-gradient(135deg,#11998e 0%,#38ef7d 100%)">
+        <div class="card__cover-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg></div>
+      </div>
+      <div class="card__body">
+        <h3 class="card__title">Как защитить свои личные границы</h3>
+        <div class="card__meta">Статья</div>
+        <p class="card__desc">Вас обнимают без спроса, давят советами, лезут с вопросами — и вы не знаете, как остановить это, не испортив отношения.</p>
+      </div>
+      <svg class="card__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+
+    <div class="cta-wrap">
+      <p class="cta-wrap__text">Узнайте, какой сценарий влияет на вашу жизнь:</p>
+      <a href="https://t.me/galya_shamray" rel="noopener" class="qa-cta">Записаться на консультацию</a>
+    </div>
   </main>
 </body>
 </html>
