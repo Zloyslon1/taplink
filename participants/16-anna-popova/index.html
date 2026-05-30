@@ -2,91 +2,205 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Попова Анна</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F1F5FC">
+  <title>Анна Попова</title>
   <style>
-:root{
-  --bg:#F1F5FC;--surface:#FFFFFF;--fg:#0B1A38;--muted:#54607A;
-  --muted-soft:#94A1BC;--border:#DDE5F2;--accent:#1F4FD1;
-  --accent-deep:#0F2E8C;--radius:18px;--radius-sm:12px;--max:480px;
-  --sh:0 4px 14px rgba(15,50,140,.08),0 1px 4px rgba(15,50,140,.04);
-  --sh-h:0 14px 36px rgba(15,50,140,.14),0 4px 12px rgba(15,50,140,.08);
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{background:var(--bg);color:var(--fg);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased;min-height:100vh}
-a{color:inherit;text-decoration:none}
-a,button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
-.page{max-width:var(--max);margin:0 auto;padding:24px 20px 64px}
+    :root {
+      --bg: #F1F5FC; --surface: #FFFFFF; --fg: #0B1A38; --muted: #54607A;
+      --muted-soft: #94A1BC; --accent: #1F4FD1; --accent-deep: #0F2E8C;
+      --accent-soft: #E8EFFE; --radius-card: 18px; --max: 480px;
+      --shadow-card: 0 4px 14px rgba(15,50,140,.08), 0 1px 4px rgba(15,50,140,.04);
+      --shadow-hover: 0 14px 36px rgba(15,50,140,.14), 0 4px 12px rgba(15,50,140,.08);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg); color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 15px; line-height: 1.45; -webkit-font-smoothing: antialiased; min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+    a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+    .page { max-width: var(--max); margin: 0 auto; padding: 24px 20px 64px; }
 
-/* header */
-.header{display:flex;align-items:flex-start;gap:18px;padding:8px 0 20px}
-.avatar{flex-shrink:0;width:96px;height:96px;border-radius:50%;overflow:hidden;
-  background:#fff;box-shadow:0 8px 24px rgba(15,50,140,.15),0 0 0 4px #fff}
-.avatar img{width:100%;height:100%;object-fit:cover;display:block}
-.hinfo{flex:1;min-width:0;padding-top:2px}
-.hname{font-size:17px;font-weight:600;line-height:1.25;margin:0 0 8px;letter-spacing:-.2px}
-.hlines{display:flex;flex-direction:column;gap:4px}
-.hline{font-size:13.5px;line-height:1.4;color:var(--fg)}
+    .header { display: flex; align-items: flex-start; gap: 18px; padding: 8px 0 20px; }
+    .header__avatar {
+      flex-shrink: 0; width: 96px; height: 96px; border-radius: 50%;
+      overflow: hidden; background: var(--accent-soft);
+      box-shadow: 0 8px 24px rgba(15,50,140,.15), 0 0 0 4px #fff;
+    }
+    .header__avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .header__info { flex: 1; min-width: 0; padding-top: 2px; }
+    .header__name { font-size: 17px; font-weight: 600; line-height: 1.25; margin: 0 0 8px; letter-spacing: -0.2px; }
+    .header__lines { display: flex; flex-direction: column; gap: 4px; }
+    .header__line { font-size: 13.5px; line-height: 1.4; color: var(--fg); }
 
-/* bio block */
-.bio{background:var(--surface);border-radius:var(--radius);padding:18px 20px;
-  margin-bottom:16px;box-shadow:var(--sh);font-size:14px;line-height:1.6;color:var(--muted)}
+    .bio {
+      background: var(--surface); border-radius: var(--radius-card);
+      padding: 18px 20px; margin-bottom: 12px; box-shadow: var(--shadow-card);
+    }
+    .bio__lead { font-size: 14.5px; font-weight: 600; color: var(--fg); margin: 0 0 14px; line-height: 1.4; }
+    .bio__group + .bio__group { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--accent-soft); }
+    .bio__group-title { font-size: 11.5px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: var(--muted-soft); margin: 0 0 10px; }
+    .bio__list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .bio__item { display: flex; gap: 10px; font-size: 14px; color: var(--muted); line-height: 1.45; }
+    .bio__item::before { content: "•"; color: var(--accent); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .bio__tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .bio__tag {
+      font-size: 13px; font-weight: 600; padding: 5px 14px;
+      border-radius: 20px; background: var(--accent-soft); color: var(--accent);
+    }
 
-/* link card */
-.lcard{display:flex;align-items:center;gap:14px;padding:14px 16px;
-  background:var(--surface);border-radius:var(--radius);margin-bottom:10px;
-  box-shadow:var(--sh);position:relative;
-  transition:transform .18s ease,box-shadow .22s ease}
-.lcard:hover{transform:translateY(-3px);box-shadow:var(--sh-h)}
-.lcard:active{transform:translateY(-1px)}
-.lcard__icon{flex-shrink:0;width:40px;height:40px;border-radius:50%;
-  background:var(--accent-soft,#E8EFFE);display:flex;align-items:center;
-  justify-content:center;color:var(--accent)}
-.lcard__icon svg{width:18px;height:18px}
-.lcard__label{flex:1;min-width:0;font-size:14.5px;font-weight:600;
-  line-height:1.3;color:var(--fg);padding-right:18px}
-.lcard__chev{position:absolute;right:14px;top:50%;transform:translateY(-50%);
-  color:var(--accent);width:16px;height:16px}
+    .section-label {
+      font-size: 12px; font-weight: 700; letter-spacing: .6px;
+      text-transform: uppercase; color: var(--muted-soft);
+      margin: 20px 0 10px 4px;
+    }
 
-/* cta button */
-.cta{display:flex;align-items:center;justify-content:center;width:100%;
-  padding:17px 20px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));
-  color:#fff;border-radius:12px;font-size:15px;font-weight:700;letter-spacing:-.1px;
-  box-shadow:0 6px 18px rgba(31,79,209,.35);
-  transition:transform .15s ease,box-shadow .2s ease;margin-bottom:10px}
-.cta:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(31,79,209,.42)}
-.cta:active{transform:translateY(0) scale(.99)}
+    .channel {
+      display: flex; align-items: center; gap: 14px; padding: 12px 16px;
+      background: var(--surface); border-radius: var(--radius-card);
+      margin-bottom: 12px; box-shadow: var(--shadow-card); position: relative;
+      transition: transform .18s ease, box-shadow .22s ease;
+    }
+    .channel:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+    .channel__avatar {
+      position: relative; width: 56px; height: 56px; border-radius: 50%;
+      overflow: hidden; flex-shrink: 0; background: var(--accent-soft);
+    }
+    .channel__avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .channel__badge {
+      position: absolute; right: -2px; bottom: -2px; width: 22px; height: 22px;
+      border-radius: 50%; border: 2px solid #fff;
+      display: flex; align-items: center; justify-content: center; background: #2AABEE;
+    }
+    .channel__badge svg { width: 12px; height: 12px; fill: #fff; }
+    .channel__body { flex: 1; min-width: 0; padding-right: 18px; }
+    .channel__name { font-size: 15px; font-weight: 600; line-height: 1.25; margin: 0 0 2px; }
+    .channel__sub  { font-size: 13px; color: var(--muted); line-height: 1.35; }
+    .channel__chevron {
+      position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+      color: var(--accent); width: 16px; height: 16px;
+    }
 
-@media(max-width:360px){
-  .page{padding:20px 16px 56px}
-  .avatar{width:84px;height:84px}
-}
-</style>
+    .card {
+      display: flex; align-items: flex-start; gap: 14px; padding: 12px;
+      background: var(--surface); border-radius: var(--radius-card);
+      margin-bottom: 12px; box-shadow: var(--shadow-card); position: relative;
+      transition: transform .18s ease, box-shadow .22s ease;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+    .card:active { transform: translateY(-1px); }
+    .card__cover {
+      flex-shrink: 0; width: 112px; aspect-ratio: 4 / 3;
+      border-radius: 10px; overflow: hidden; position: relative;
+    }
+    .card__cover-icon {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    }
+    .card__cover-icon svg { width: 38px; height: 38px; fill: rgba(255,255,255,.85); }
+    .card__body { flex: 1; min-width: 0; padding-right: 18px; padding-top: 2px; }
+    .card__title { font-size: 14.5px; font-weight: 600; line-height: 1.32; color: var(--fg); margin: 0 0 4px; letter-spacing: -0.1px; }
+    .card__meta  { font-size: 12px; color: var(--muted-soft); line-height: 1.35; margin: 0 0 6px; }
+    .card__desc  { font-size: 13px; color: var(--muted); line-height: 1.45; margin: 0; }
+    .card__chevron { position: absolute; right: 14px; top: 18px; color: var(--accent); width: 16px; height: 16px; }
+
+    .cta-wrap {
+      background: var(--surface); border-radius: var(--radius-card);
+      padding: 20px; margin-top: 4px; box-shadow: var(--shadow-card);
+    }
+    .qa-cta {
+      display: flex; align-items: center; justify-content: center; width: 100%;
+      padding: 17px 20px; background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+      color: #fff; border-radius: 12px; font-size: 15px; font-weight: 700;
+      letter-spacing: -0.1px; box-shadow: 0 6px 18px rgba(31,79,209,.35);
+      transition: transform .15s ease, box-shadow .2s ease;
+    }
+    .qa-cta:hover  { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(31,79,209,.42); }
+    .qa-cta:active { transform: translateY(0) scale(.99); }
+
+    @media (max-width: 360px) {
+      .page { padding: 20px 16px 56px; }
+      .header__avatar { width: 84px; height: 84px; }
+      .card__cover { width: 96px; }
+    }
+  </style>
 </head>
 <body>
   <main class="page">
+
     <header class="header">
-      <div class="avatar">
-        <img src="ФОТО_16" alt="Попова Анна" width="192" height="192" decoding="async">
+      <div class="header__avatar">
+        <img src="ФОТО_АВАТАР" alt="Анна Попова" width="192" height="192" decoding="async" fetchpriority="high">
       </div>
-      <div class="hinfo">
-        <h1 class="hname">Попова Анна</h1>
-        <div class="hlines">
-      <div class="hline">Психолог, Психогенеалог.</div>
-      <div class="hline">Я работаю в четырёх направлениях:</div>
-      </div>
+      <div class="header__info">
+        <h1 class="header__name">Анна Попова</h1>
+        <div class="header__lines">
+          <div class="header__line">Психолог · Психогенеалог</div>
+        </div>
       </div>
     </header>
 
-    <a href="https://t.me/ana_dusha21" rel="noopener" class="lcard"><span class="lcard__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.7 8.02c-.12.56-.46.7-.93.43l-2.58-1.9-1.24 1.2c-.14.14-.26.26-.53.26l.19-2.64 4.84-4.37c.21-.19-.05-.29-.32-.1L7.9 14.96l-2.53-.79c-.55-.17-.56-.55.12-.82l9.87-3.8c.46-.17.86.11.28.25z"/></svg></span><span class="lcard__label">Мой телеграм канал</span><svg class="lcard__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></a>
-<a href="https://t.me/ana_dusha21/634" rel="noopener" class="lcard"><span class="lcard__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.7 8.02c-.12.56-.46.7-.93.43l-2.58-1.9-1.24 1.2c-.14.14-.26.26-.53.26l.19-2.64 4.84-4.37c.21-.19-.05-.29-.32-.1L7.9 14.96l-2.53-.79c-.55-.17-.56-.55.12-.82l9.87-3.8c.46-.17.86.11.28.25z"/></svg></span><span class="lcard__label">Практика помогает убрать тревожность и мыслемешалку перед сном</span><svg class="lcard__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></a>
-<a href="https://t.me/ana_dusha21/2214" rel="noopener" class="lcard"><span class="lcard__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.7 8.02c-.12.56-.46.7-.93.43l-2.58-1.9-1.24 1.2c-.14.14-.26.26-.53.26l.19-2.64 4.84-4.37c.21-.19-.05-.29-.32-.1L7.9 14.96l-2.53-.79c-.55-.17-.56-.55.12-.82l9.87-3.8c.46-.17.86.11.28.25z"/></svg></span><span class="lcard__label">Практика</span><svg class="lcard__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></a>
-<a href="https://life-24.com/post/147577" rel="noopener" class="lcard"><span class="lcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h12"/></svg></span><span class="lcard__label">Ссылки на мои статьи в сми</span><svg class="lcard__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></a>
-<a href="https://guberniya.info/society/lyubov-ili-spektakl-kogda-chuvstva-stanovyatsya-navyazannymi-rolyami.html" rel="noopener" class="lcard"><span class="lcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h12"/></svg></span><span class="lcard__label">Читать статью</span><svg class="lcard__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></a>
-<a href="https://t.me/ana_dusha" rel="noopener" class="lcard"><span class="lcard__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.7 8.02c-.12.56-.46.7-.93.43l-2.58-1.9-1.24 1.2c-.14.14-.26.26-.53.26l.19-2.64 4.84-4.37c.21-.19-.05-.29-.32-.1L7.9 14.96l-2.53-.79c-.55-.17-.56-.55.12-.82l9.87-3.8c.46-.17.86.11.28.25z"/></svg></span><span class="lcard__label">Записаться на консультацию можно здесь</span><svg class="lcard__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></a>
+    <div class="bio">
+      <p class="bio__lead">Помогаю выявлять и прорабатывать родовые программы и страхи, освобождаться от повторяющихся сценариев и раскрывать наследственные ресурсы для уверенности, успеха и благополучия.</p>
+
+      <div class="bio__group">
+        <p class="bio__group-title">Работаю в 4 направлениях</p>
+        <div class="bio__tags">
+          <span class="bio__tag">Деньги</span>
+          <span class="bio__tag">Реализация</span>
+          <span class="bio__tag">Отношения</span>
+          <span class="bio__tag">Здоровье</span>
+        </div>
+      </div>
+
+      <div class="bio__group">
+        <p class="bio__group-title">Ко мне приходят, когда</p>
+        <ul class="bio__list">
+          <li class="bio__item">Одни и те же ситуации повторяются снова и снова</li>
+          <li class="bio__item">Целей много, а ясности — нет</li>
+          <li class="bio__item">Ответственности всё больше, а внутри пусто</li>
+          <li class="bio__item">Хочется жить свою жизнь, а не продолжать чужие сценарии</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="section-label">Мой канал</p>
+
+    <a href="https://t.me/ana_dusha21" rel="noopener" class="channel">
+      <div class="channel__avatar">
+        <img src="ФОТО_АВАТАР" alt="" width="112" height="112" decoding="async" loading="lazy">
+        <div class="channel__badge">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.7 8.02c-.12.56-.46.7-.93.43l-2.58-1.9-1.24 1.2c-.14.14-.26.26-.53.26l.19-2.64 4.84-4.37c.21-.19-.05-.29-.32-.1L7.9 14.96l-2.53-.79c-.55-.17-.56-.55.12-.82l9.87-3.8c.46-.17.86.11.28.25z"/></svg>
+        </div>
+      </div>
+      <div class="channel__body">
+        <div class="channel__name">Анна Попова</div>
+        <div class="channel__sub">Подпишись — и получи практику в подарок</div>
+      </div>
+      <svg class="channel__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+
+    <p class="section-label">Подарок за подписку</p>
+
+    <a href="https://t.me/ana_dusha21/634" rel="noopener" class="card">
+      <div class="card__cover" style="background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);">
+        <div class="card__cover-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.34C18 2.54 15.84.5 13.18.5c-1.3 0-2.48.54-3.36 1.4L9 2.71l-.82-.83C7.3 1.04 6.12.5 4.82.5 2.16.5 0 2.54 0 4.66c0 .46.11.9.18 1.34H0v2h20v-2zM4.82 4.5c-.92 0-1.32-.72-1.32-1.34 0-.68.6-1.16 1.32-1.16.54 0 1.01.22 1.38.59L7.45 3.8c-.54.43-1.58.7-2.63.7zm8.36 0c-1.05 0-2.09-.27-2.63-.7l1.25-1.21c.37-.37.84-.59 1.38-.59.72 0 1.32.48 1.32 1.16 0 .62-.4 1.34-1.32 1.34zM1 10v10c0 1.1.9 2 2 2h7v-7h4v7h7V10H1z"/></svg>
+        </div>
+      </div>
+      <div class="card__body">
+        <h3 class="card__title">Практика в подарок</h3>
+        <div class="card__meta">Бесплатно · Telegram</div>
+        <p class="card__desc">Остановить внутренний шум, отпустить напряжение, получить вдохновение и ресурс</p>
+      </div>
+      <svg class="card__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+
+    <div class="cta-wrap">
+      <a href="https://t.me/ana_dusha" rel="noopener" class="qa-cta">Записаться на консультацию</a>
+    </div>
 
   </main>
 </body>
